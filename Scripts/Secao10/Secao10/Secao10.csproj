@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5270E9BD-038B-4AA6-B447-C5E9A9FAE8D1}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Secao10</RootNamespace>
+    <AssemblyName>Secao10</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstratos\ExercicioFixacao\Entities\Company.cs" />
+    <Compile Include="Abstratos\ExercicioFixacao\Entities\Individual.cs" />
+    <Compile Include="Abstratos\ExercicioFixacao\Entities\TaxPayer.cs" />
+    <Compile Include="Abstratos\ExercicioResolvido\Entities\Circle.cs" />
+    <Compile Include="Abstratos\ExercicioResolvido\Entities\Enums\Color.cs" />
+    <Compile Include="Abstratos\ExercicioResolvido\Entities\Rectangle.cs" />
+    <Compile Include="Abstratos\ExercicioResolvido\Entities\Shape.cs" />
+    <Compile Include="Polimorfismo\ExercicioFixacao\Entities\ImportedProduct.cs" />
+    <Compile Include="Polimorfismo\ExercicioFixacao\Entities\Product.cs" />
+    <Compile Include="Polimorfismo\ExercicioFixacao\Entities\UsedProduct.cs" />
+    <Compile Include="Polimorfismo\ExercicioResolvido\Entities\Employee.cs" />
+    <Compile Include="Polimorfismo\ExercicioResolvido\Entities\OutsourcedEmployee.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
