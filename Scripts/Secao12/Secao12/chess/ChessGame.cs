@@ -7,8 +7,8 @@ namespace chess
     {
 
         public Board board { get; private set; }
-        private int move;
-        private Color currentPlayer;
+        public int move { get; private set; }
+        public Color currentPlayer { get; private set; }
         public bool finished { get; private set; }
 
         public ChessGame()
@@ -29,7 +29,52 @@ namespace chess
             Piece capturedPiece = board.removePiece(destination);
 
             board.setPiece(p, destination);
+        }
 
+        public void PlayMove(Position origin, Position destination)
+        {
+            MakeMove(origin, destination);
+
+            move++;
+
+            ChangePlayer();
+        }
+
+        public void ValidOriginPosition(Position pos)
+        {
+            if(board.getPiece(pos) == null)
+            {
+                throw new BoardException("There is no piece in the chosen position");
+            }
+            if(currentPlayer != board.getPiece(pos).color)
+            {
+                throw new BoardException("The chosen piece is not yours");
+            }
+            if (!board.getPiece(pos).HasPossibleMoves())
+            {
+                throw new BoardException("There is no possible moves with the chosen piece");
+            }
+
+        }
+
+        public void ValidDestinationPosition(Position origin, Position destination)
+        {
+            if (!board.getPiece(origin).CanMoveTo(destination))
+            {
+                throw new BoardException("Invalid Destination Position");
+            }
+        }
+
+        private void ChangePlayer()
+        {
+            if(currentPlayer == Color.White)
+            {
+                currentPlayer = Color.Black;
+            }
+            else
+            {
+                currentPlayer = Color.White;
+            }
         }
 
         public void PlacePieces()

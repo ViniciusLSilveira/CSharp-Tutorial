@@ -5,23 +5,23 @@ namespace chess
     class ChessPosition
     {
 
-        public char Column { get; set; }
-        public int Row { get; set; }
+        public char column { get; set; }
+        public int row { get; set; }
 
         public ChessPosition(char column, int row)
         {
-            Column = column;
-            Row = row;
+            this.column = column;
+            this.row = row;
         }
 
         public Position toPosition()
         {
-            return new Position(8 - Row, Column - 'a');
+            return new Position(8 - row, column - 'a');
         }
 
         public override string ToString()
         {
-            return "" + Column + Row;
+            return "" + column + row;
         }
     }
 }

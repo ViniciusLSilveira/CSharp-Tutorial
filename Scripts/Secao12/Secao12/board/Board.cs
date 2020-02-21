@@ -3,17 +3,17 @@
     class Board
     {
 
-        public int Rows { get; set; }
-        public int Columns { get; set; }
+        public int rows { get; set; }
+        public int columns { get; set; }
 
         private Piece[,] pieces;
 
         public Board(int rows, int columns)
         {
-            Rows = rows;
-            Columns = columns;
+            this.rows = rows;
+            this.columns = columns;
 
-            pieces = new Piece[Rows, Columns];
+            pieces = new Piece[this.rows, this.columns];
         }
 
         public Piece getPiece(int rows, int columns)
@@ -23,7 +23,7 @@
 
         public Piece getPiece(Position pos)
         {
-            return pieces[pos.Row, pos.Column];
+            return pieces[pos.row, pos.column];
         }
 
         public bool HasPiece(Position pos)
@@ -38,8 +38,8 @@
             {
                 throw new BoardException("There's already a piece in this position");
             }
-            pieces[pos.Row, pos.Column] = p;
-            p.Position = pos;
+            pieces[pos.row, pos.column] = p;
+            p.position = pos;
         }
 
         public Piece removePiece(Position pos)
@@ -50,9 +50,9 @@
                 return null;
             }
             Piece aux = getPiece(pos);
-            aux.Position = null;
+            aux.position = null;
 
-            pieces[pos.Row, pos.Column] = null;
+            pieces[pos.row, pos.column] = null;
 
             return aux;
 
@@ -60,7 +60,7 @@
 
         public bool ValidPosition(Position pos)
         {
-            if (pos.Row < 0 || pos.Row >= Rows || pos.Column < 0 || pos.Column >= Columns)
+            if (pos.row < 0 || pos.row >= rows || pos.column < 0 || pos.column >= columns)
             {
                 return false;
             }

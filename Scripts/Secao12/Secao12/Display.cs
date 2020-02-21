@@ -11,10 +11,10 @@ namespace Secao12
 
         public static void PrintBoard(Board board)
         {
-            for (int i = 0; i < board.Rows; i++)
+            for (int i = 0; i < board.rows; i++)
             {
                 Console.Write((8 - i) + " ");
-                for (int j = 0; j < board.Columns; j++)
+                for (int j = 0; j < board.columns; j++)
                 {
                     PrintPiece(board.getPiece(i, j));
                 }
@@ -29,10 +29,10 @@ namespace Secao12
             ConsoleColor newBackground = ConsoleColor.DarkGray;
 
 
-            for (int i = 0; i < board.Rows; i++)
+            for (int i = 0; i < board.rows; i++)
             {
                 Console.Write((8 - i) + " ");
-                for (int j = 0; j < board.Columns; j++)
+                for (int j = 0; j < board.columns; j++)
                 {
                     if (possiblePositions[i, j])
                     {
@@ -59,11 +59,11 @@ namespace Secao12
             }
             else
             {
-                if (piece.Color == Color.White)
+                if (piece.color == Color.White)
                 {
                     Console.Write(piece);
                 }
-                else if (piece.Color == Color.Black)
+                else if (piece.color == Color.Black)
                 {
                     ConsoleColor aux = Console.ForegroundColor;
                     Console.ForegroundColor = ConsoleColor.Yellow;

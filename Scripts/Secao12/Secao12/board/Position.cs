@@ -3,25 +3,25 @@
     class Position
     {
 
-        public int Row { get; set; }
-        public int Column { get; set; }
+        public int row { get; set; }
+        public int column { get; set; }
 
         public Position(int row, int column)
         {
-            Row = row;
-            Column = column;
+            this.row = row;
+            this.column = column;
         }
 
         public void SetValues(int row, int column)
         {
-            Row = row;
-            Column = column;
+            this.row = row;
+            this.column = column;
         }
 
 
         public override string ToString()
         {
-            return Row + ", " + Column;
+            return row + ", " + column;
         }
     }
 }

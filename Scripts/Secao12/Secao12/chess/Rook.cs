@@ -13,58 +13,58 @@ namespace chess
             return "R";
         }
 
-        public override bool[,] PossibleMovements()
+        public override bool[,] PossibleMoves()
         {
-            bool[,] mat = new bool[Board.Rows, Board.Columns];
+            bool[,] mat = new bool[board.rows, board.columns];
 
             Position pos = new Position(0, 0);
 
             // ACIMA
-            pos.SetValues(Position.Row + 1, Position.Column);
-            while(Board.ValidPosition(pos) && CanMove(pos))
+            pos.SetValues(position.row + 1, position.column);
+            while(board.ValidPosition(pos) && CanMove(pos))
             {
-                mat[pos.Row, pos.Column] = true;
-                if(Board.getPiece(pos) != null && Board.getPiece(pos).Color != Color)
+                mat[pos.row, pos.column] = true;
+                if(board.getPiece(pos) != null && board.getPiece(pos).color != color)
                 {
                     break;
                 }
-                pos.Row += 1;
+                pos.row += 1;
             }
 
             // ABAIXO
-            pos.SetValues(Position.Row - 1, Position.Column);
-            while (Board.ValidPosition(pos) && CanMove(pos))
+            pos.SetValues(position.row - 1, position.column);
+            while (board.ValidPosition(pos) && CanMove(pos))
             {
-                mat[pos.Row, pos.Column] = true;
-                if (Board.getPiece(pos) != null && Board.getPiece(pos).Color != Color)
+                mat[pos.row, pos.column] = true;
+                if (board.getPiece(pos) != null && board.getPiece(pos).color != color)
                 {
                     break;
                 }
-                pos.Row -= 1;
+                pos.row -= 1;
             }
 
             // DIREITA
-            pos.SetValues(Position.Row, Position.Column + 1);
-            while (Board.ValidPosition(pos) && CanMove(pos))
+            pos.SetValues(position.row, position.column + 1);
+            while (board.ValidPosition(pos) && CanMove(pos))
             {
-                mat[pos.Row, pos.Column] = true;
-                if (Board.getPiece(pos) != null && Board.getPiece(pos).Color != Color)
+                mat[pos.row, pos.column] = true;
+                if (board.getPiece(pos) != null && board.getPiece(pos).color != color)
                 {
                     break;
                 }
-                pos.Column += 1;
+                pos.column += 1;
             }
 
             // ESQUERDA
-            pos.SetValues(Position.Row, Position.Column - 1);
-            while (Board.ValidPosition(pos) && CanMove(pos))
+            pos.SetValues(position.row, position.column - 1);
+            while (board.ValidPosition(pos) && CanMove(pos))
             {
-                mat[pos.Row, pos.Column] = true;
-                if (Board.getPiece(pos) != null && Board.getPiece(pos).Color != Color)
+                mat[pos.row, pos.column] = true;
+                if (board.getPiece(pos) != null && board.getPiece(pos).color != color)
                 {
                     break;
                 }
-                pos.Column -= 1;
+                pos.column -= 1;
             }
 
             return mat;

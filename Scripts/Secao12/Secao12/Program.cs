@@ -15,22 +15,35 @@ namespace Secao12
 
                 while (!game.finished)
                 {
-                    Console.Clear();
-                    Display.PrintBoard(game.board);
+                    try
+                    {
+                        Console.Clear();
+                        Display.PrintBoard(game.board);
 
-                    Console.Write("\nOrigin: ");
-                    Position origin = Display.ReadChessPosition().toPosition();
+                        Console.WriteLine("\nTurno: " + game.move);
+                        Console.WriteLine("Waiting for: " + game.currentPlayer);
 
-                    bool[,] possiblePositions = game.board.getPiece(origin).PossibleMovements();
+                        Console.Write("\nOrigin: ");
+                        Position origin = Display.ReadChessPosition().toPosition();
+                        game.ValidOriginPosition(origin);
 
-                    Console.Clear();
+                        bool[,] possiblePositions = game.board.getPiece(origin).PossibleMoves();
 
-                    Display.PrintBoard(game.board, possiblePositions);
+                        Console.Clear();
 
-                    Console.Write("\nDestination: ");
-                    Position destination = Display.ReadChessPosition().toPosition();
+                        Display.PrintBoard(game.board, possiblePositions);
 
-                    game.MakeMove(origin, destination);
+                        Console.Write("\nDestination: ");
+                        Position destination = Display.ReadChessPosition().toPosition();
+                        game.ValidDestinationPosition(origin, destination);
+
+                        game.PlayMove(origin, destination);
+                    }
+                    catch(BoardException e)
+                    {
+                        Console.WriteLine(e.Message);
+                        Console.ReadLine();
+                    }
                 }
             }
             catch (BoardException e)

@@ -3,32 +3,55 @@
     abstract class Piece
     {
 
-        public Position Position { get; set; }
-        public Color Color { get; protected set; }
-        public int Moves { get; protected set; }
-        public Board Board { get; protected set; }
+        public Position position { get; set; }
+        public Color color { get; protected set; }
+        public int moves { get; protected set; }
+        public Board board { get; protected set; }
 
         public Piece(Board board, Color color)
         {
-            Position = null;
-            Color = color;
-            Board = board;
+            position = null;
+            this.color = color;
+            this.board = board;
 
-            Moves = 0;
+            moves = 0;
         }
 
         protected bool CanMove(Position pos)
         {
-            Piece p = Board.getPiece(pos);
+            Piece p = board.getPiece(pos);
 
-            return p == null || p.Color != Color;
+            return p == null || p.color != color;
         }
 
         public void IncrementMoves()
         {
-            Moves++;
+            moves++;
         }
 
-        public abstract bool[,] PossibleMovements();
+        public bool HasPossibleMoves()
+        {
+            bool[,] mat = PossibleMoves();
+
+            for (int i = 0; i < board.rows; i++)
+            {
+                for (int j = 0; j < board.columns; j++)
+                {
+                    if(mat[i, j])
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        public bool CanMoveTo(Position pos)
+        {
+            return PossibleMoves()[pos.row, pos.column];
+        }
+
+        public abstract bool[,] PossibleMoves();
     }
 }

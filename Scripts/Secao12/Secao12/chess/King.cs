@@ -15,9 +15,9 @@ namespace chess
             return "K";
         }
 
-        public override bool[,] PossibleMovements()
+        public override bool[,] PossibleMoves()
         {
-            bool[,] mat = new bool[Board.Rows, Board.Columns];
+            bool[,] mat = new bool[board.rows, board.columns];
 
             Position pos = new Position(0, 0);
 
@@ -27,11 +27,11 @@ namespace chess
                 {
                     if (i == 0 && j == 0) continue;
 
-                    pos.SetValues(Position.Row + i, Position.Column + j);
+                    pos.SetValues(position.row + i, position.column + j);
 
-                    if(Board.ValidPosition(pos) && CanMove(pos))
+                    if(board.ValidPosition(pos) && CanMove(pos))
                     {
-                        mat[pos.Row, pos.Column] = true;
+                        mat[pos.row, pos.column] = true;
                     }
                 }
             }
