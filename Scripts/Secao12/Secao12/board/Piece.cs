@@ -27,6 +27,11 @@
         public void IncrementMoves()
         {
             moves++;
+        }        
+
+        public void DecrementMoves()
+        {
+            moves--;
         }
 
         public bool HasPossibleMoves()
