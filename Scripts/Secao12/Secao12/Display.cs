@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using board;
 using chess;
 
@@ -8,6 +7,41 @@ namespace Secao12
 {
     class Display
     {
+
+        public static void PrintGame(ChessGame game)
+        {
+            PrintBoard(game.board);
+
+            Console.WriteLine();
+            PrintCapturedPieces(game);
+
+            Console.WriteLine("\nTurno: " + game.move);
+            Console.WriteLine("Waiting for: " + game.currentPlayer);
+        }
+
+        public static void PrintCapturedPieces(ChessGame game)
+        {
+            Console.WriteLine("Captured pieces: ");
+            Console.Write("White: ");
+            PrintHashSet(game.getCapturedPieces(Color.White));
+
+            ConsoleColor aux = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("Black: ");
+            PrintHashSet(game.getCapturedPieces(Color.Black));
+            Console.ForegroundColor = aux;
+        }
+
+        public static void PrintHashSet(HashSet<Piece> hashSet)
+        {
+            Console.Write("[");
+            foreach (Piece x in hashSet)
+            {
+                PrintPiece(x);
+                Console.Write(" ");
+            }
+            Console.WriteLine("]");
+        }
 
         public static void PrintBoard(Board board)
         {

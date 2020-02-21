@@ -18,10 +18,7 @@ namespace Secao12
                     try
                     {
                         Console.Clear();
-                        Display.PrintBoard(game.board);
-
-                        Console.WriteLine("\nTurno: " + game.move);
-                        Console.WriteLine("Waiting for: " + game.currentPlayer);
+                        Display.PrintGame(game);
 
                         Console.Write("\nOrigin: ");
                         Position origin = Display.ReadChessPosition().toPosition();
