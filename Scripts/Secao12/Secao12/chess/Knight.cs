@@ -13,5 +13,13 @@ namespace chess
             return "C";
         }
 
+        public override bool[,] PossibleMovements()
+        {
+            bool[,] mat = new bool[Board.Rows, Board.Columns];
+
+            Position pos = new Position(0, 0);
+
+            return mat;
+        }
     }
 }

@@ -46,7 +46,7 @@ namespace chess
             board.setPiece(new Rook(board, Color.Black), new ChessPosition('d', 7).toPosition());
             board.setPiece(new Rook(board, Color.Black), new ChessPosition('e', 7).toPosition());
             board.setPiece(new Rook(board, Color.Black), new ChessPosition('e', 8).toPosition());
-            board.setPiece(new King(board, Color.Black), new ChessPosition('d', 8).toPosition());
+            board.setPiece(new King(board, Color.Black), new ChessPosition('d', 6).toPosition());
         }
     }
 }

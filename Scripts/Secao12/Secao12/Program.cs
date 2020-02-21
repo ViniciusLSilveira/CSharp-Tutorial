@@ -21,7 +21,13 @@ namespace Secao12
                     Console.Write("\nOrigin: ");
                     Position origin = Display.ReadChessPosition().toPosition();
 
-                    Console.Write("Destination: ");
+                    bool[,] possiblePositions = game.board.getPiece(origin).PossibleMovements();
+
+                    Console.Clear();
+
+                    Display.PrintBoard(game.board, possiblePositions);
+
+                    Console.Write("\nDestination: ");
                     Position destination = Display.ReadChessPosition().toPosition();
 
                     game.MakeMove(origin, destination);
