@@ -42,6 +42,8 @@ namespace Secao12
                         Console.ReadLine();
                     }
                 }
+                Console.Clear();
+                Display.PrintGame(game);
             }
             catch (BoardException e)
             {

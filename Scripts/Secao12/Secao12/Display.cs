@@ -16,12 +16,21 @@ namespace Secao12
             PrintCapturedPieces(game);
 
             Console.WriteLine("\nTurno: " + game.move);
-            Console.WriteLine("Waiting for: " + game.currentPlayer);
-
-            if (game.check)
+            if (!game.finished)
             {
-                Console.WriteLine("CHECK!");
+                Console.WriteLine("Waiting for: " + game.currentPlayer);
+
+                if (game.check)
+                {
+                    Console.WriteLine("CHECK!");
+                }
             }
+            else
+            {
+                Console.WriteLine("CHECKMATE!");
+                Console.WriteLine("Winner: " + game.currentPlayer);
+            }
+
         }
 
         public static void PrintCapturedPieces(ChessGame game)
