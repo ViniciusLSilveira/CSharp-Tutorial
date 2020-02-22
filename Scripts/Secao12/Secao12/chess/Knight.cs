@@ -10,7 +10,7 @@ namespace chess
 
         public override string ToString()
         {
-            return "C";
+            return "N";
         }
 
         public override bool[,] PossibleMoves()
@@ -18,6 +18,46 @@ namespace chess
             bool[,] mat = new bool[board.rows, board.columns];
 
             Position pos = new Position(0, 0);
+
+            pos.SetValues(position.row - 1, position.column - 2);
+            if(board.ValidPosition(pos) && CanMove(pos)){
+                mat[pos.row, pos.column] = true;
+            }
+
+            pos.SetValues(position.row - 2, position.column - 1);
+            if(board.ValidPosition(pos) && CanMove(pos)){
+                mat[pos.row, pos.column] = true;
+            }
+
+            pos.SetValues(position.row - 2, position.column + 1);
+            if(board.ValidPosition(pos) && CanMove(pos)){
+                mat[pos.row, pos.column] = true;
+            }
+
+            pos.SetValues(position.row - 1, position.column + 2);
+            if(board.ValidPosition(pos) && CanMove(pos)){
+                mat[pos.row, position.column] = true;
+            }
+
+            pos.SetValues(position.row + 1, position.column + 2);
+            if(board.ValidPosition(pos) && CanMove(pos)){
+                mat[pos.row, pos.column] = true;
+            }
+
+            pos.SetValues(position.row + 2, position.column + 1);
+            if(board.ValidPosition(pos) && CanMove(pos)){
+                mat[pos.row, pos.column] = true;
+            }
+
+            pos.SetValues(position.row + 2, position.column - 1);
+            if(board.ValidPosition(pos) && CanMove(pos)){
+                mat[pos.row, pos.column] = true;
+            }
+
+            pos.SetValues(position.row + 1, position.column - 2);
+            if(board.ValidPosition(pos) && CanMove(pos)){
+                mat[pos.row, pos.column] = true;
+            }
 
             return mat;
         }
