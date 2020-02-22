@@ -16,6 +16,7 @@ namespace chess
         private HashSet<Piece> capturedPieces;
 
         public bool check { get; set; }
+        public Piece vulnerableEnPassant { get; private set; }
 
         public ChessGame()
         {
@@ -23,6 +24,8 @@ namespace chess
             move = 1;
             currentPlayer = Color.White;
             finished = false;
+            check = false;
+            vulnerableEnPassant = null;
 
             pieces = new HashSet<Piece>();
             capturedPieces = new HashSet<Piece>();
@@ -66,6 +69,26 @@ namespace chess
                 board.setPiece(R, RookDestination);
             }
 
+            // #EspecialPlay - EnPassant
+            if (p is Pawn)
+            {
+                if(origin.column != destination.column && capturedPiece == null)
+                {
+                    Position posP;
+                    if(p.color == Color.White)
+                    {
+                        posP = new Position(destination.row + 1, destination.column);
+                    }
+                    else
+                    {
+                        posP = new Position(destination.row - 1, destination.column);
+                    }
+
+                    capturedPiece = board.removePiece(posP);
+                    capturedPieces.Add(capturedPiece);
+                }
+            }
+
             return capturedPiece;
         }
 
@@ -102,6 +125,25 @@ namespace chess
                 board.setPiece(R, RookOrigin);
             }
 
+            // #EspecialPlay - EnPassant
+            if(p is Pawn)
+            {
+                if(origin.column != destination.column && capturedPiece == vulnerableEnPassant)
+                {
+                    Piece pawn = board.getPiece(destination);
+                    Position posP;
+                    if(p.color == Color.White)
+                    {
+                        posP = new Position(3, destination.column);
+                    }
+                    else
+                    {
+                        posP = new Position(4, destination.column);
+                    }
+                    board.setPiece(pawn, posP);
+                }
+            }
+
             board.setPiece(p, origin);
         }
 
@@ -127,10 +169,24 @@ namespace chess
             {
                 finished = true;
             }
+            else
+            {
+                move++;
+                ChangePlayer();
+            }
 
-            move++;
+            Piece p = board.getPiece(destination);
 
-            ChangePlayer();
+            // #EspecialPlay - EnPassant
+            if(p is Pawn && (destination.row == origin.row - 2 || destination.row == origin.row + 2))
+            {
+                vulnerableEnPassant = p;
+            }
+            else
+            {
+                vulnerableEnPassant = null;
+            }
+
         }
 
         public void ValidOriginPosition(Position pos)
@@ -295,7 +351,7 @@ namespace chess
             PlaceNewPiece('h', 1, new Rook(board, Color.White));
             for (char ch = 'a'; ch <= 'h'; ch++)
             {
-                PlaceNewPiece(ch, 2, new Pawn(board, Color.White));
+                PlaceNewPiece(ch, 2, new Pawn(board, Color.White, this));
             }
 
             PlaceNewPiece('a', 8, new Rook(board, Color.Black));
@@ -308,7 +364,7 @@ namespace chess
             PlaceNewPiece('h', 8, new Rook(board, Color.Black));
             for (char ch = 'a'; ch <= 'h'; ch++)
             {
-                PlaceNewPiece(ch, 7, new Pawn(board, Color.Black));
+                PlaceNewPiece(ch, 7, new Pawn(board, Color.Black, this));
             }
         }
     }
