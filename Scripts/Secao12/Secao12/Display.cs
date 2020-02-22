@@ -8,6 +8,14 @@ namespace Secao12
     class Display
     {
 
+        private static ConsoleColor originalForeground = ConsoleColor.Gray;
+        private static ConsoleColor originalBackground = ConsoleColor.Black;
+        private static ConsoleColor whiteBackground = ConsoleColor.DarkGray;
+        private static ConsoleColor blackBackground = ConsoleColor.Black;
+        private static ConsoleColor whiteForeground = ConsoleColor.Cyan;
+        private static ConsoleColor blackForeground = ConsoleColor.Yellow;
+        private static ConsoleColor possibleMovesBackground = ConsoleColor.DarkGreen;
+
         public static void PrintGame(ChessGame game)
         {
             PrintBoard(game.board);
@@ -15,7 +23,8 @@ namespace Secao12
             Console.WriteLine();
             PrintCapturedPieces(game);
 
-            Console.WriteLine("\nTurno: " + game.move);
+            Console.ForegroundColor = originalForeground;
+            Console.WriteLine("\nMove: " + game.move);
             if (!game.finished)
             {
                 Console.WriteLine("Waiting for: " + game.currentPlayer);
@@ -36,14 +45,16 @@ namespace Secao12
         public static void PrintCapturedPieces(ChessGame game)
         {
             Console.WriteLine("Captured pieces: ");
+
+            Console.ForegroundColor = whiteForeground;
             Console.Write("White: ");
             PrintHashSet(game.getCapturedPieces(Color.White));
 
-            ConsoleColor aux = Console.ForegroundColor;
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = blackForeground;
             Console.Write("Black: ");
             PrintHashSet(game.getCapturedPieces(Color.Black));
-            Console.ForegroundColor = aux;
+
+            Console.ForegroundColor = originalForeground;
         }
 
         public static void PrintHashSet(HashSet<Piece> hashSet)
@@ -64,43 +75,58 @@ namespace Secao12
                 Console.Write((8 - i) + " ");
                 for (int j = 0; j < board.columns; j++)
                 {
+                    if ((j % 2 == 0 && i % 2 == 0) || (j % 2 == 1 && i % 2 == 1))
+                    {
+                        Console.BackgroundColor = whiteBackground;
+                    }
+                    else
+                    {
+                        Console.BackgroundColor = blackBackground;
+                    }
                     PrintPiece(board.getPiece(i, j));
                 }
                 Console.WriteLine();
+                Console.BackgroundColor = originalBackground;
+                Console.ForegroundColor = originalForeground;
             }
+            Console.BackgroundColor = originalBackground;
+            Console.ForegroundColor = originalForeground;
             Console.WriteLine("  a b c d e f g h");
         }
 
         public static void PrintBoard(Board board, bool[,] possiblePositions)
         {
-            ConsoleColor originalBackground = Console.BackgroundColor;
-            ConsoleColor newBackground = ConsoleColor.DarkGray;
-
-
             for (int i = 0; i < board.rows; i++)
             {
                 Console.Write((8 - i) + " ");
                 for (int j = 0; j < board.columns; j++)
                 {
-                    if (possiblePositions[i, j])
+                    if ((j % 2 == 0 && i % 2 == 0) || (j % 2 == 1 && i % 2 == 1))
                     {
-                        Console.BackgroundColor = newBackground;
+                        Console.BackgroundColor = whiteBackground;
                     }
                     else
                     {
-                        Console.BackgroundColor = originalBackground;
+                        Console.BackgroundColor = blackBackground;
+                    }
+                    if (possiblePositions[i, j])
+                    {
+                        Console.BackgroundColor = possibleMovesBackground;
                     }
                     PrintPiece(board.getPiece(i, j));
                     Console.BackgroundColor = originalBackground;
+                    Console.ForegroundColor = originalForeground;
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine("  a b c d e f g h");
             Console.BackgroundColor = originalBackground;
+            Console.ForegroundColor = originalForeground;
+            Console.WriteLine("  a b c d e f g h");
         }
 
         public static void PrintPiece(Piece piece)
         {
+
             if (piece == null)
             {
                 Console.Write("- ");
@@ -109,17 +135,17 @@ namespace Secao12
             {
                 if (piece.color == Color.White)
                 {
+                    Console.ForegroundColor = whiteForeground;
                     Console.Write(piece);
                 }
                 else if (piece.color == Color.Black)
                 {
-                    ConsoleColor aux = Console.ForegroundColor;
-                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = blackForeground;
                     Console.Write(piece);
-                    Console.ForegroundColor = aux;
                 }
                 Console.Write(" ");
             }
+            Console.ForegroundColor = originalForeground;
         }
 
         public static ChessPosition ReadChessPosition()
