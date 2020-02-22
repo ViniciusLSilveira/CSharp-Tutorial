@@ -44,6 +44,28 @@ namespace chess
                 capturedPieces.Add(capturedPiece);
             }
 
+            // #EspecialPlay - Castle Kingside
+            if(p is King && destination.column == origin.column + 2)
+            {
+                Position RookOrigin = new Position(origin.row, origin.column + 3);
+                Position RookDestination = new Position(origin.row, origin.column + 1);
+
+                Piece R = board.removePiece(RookOrigin);
+                R.IncrementMoves();
+                board.setPiece(R, RookDestination);
+            } 
+            
+            // #EspecialPlay - Castle Queenside
+            if(p is King && destination.column == origin.column - 2)
+            {
+                Position RookOrigin = new Position(origin.row, origin.column - 4);
+                Position RookDestination = new Position(origin.row, origin.column - 1);
+
+                Piece R = board.removePiece(RookOrigin);
+                R.IncrementMoves();
+                board.setPiece(R, RookDestination);
+            }
+
             return capturedPiece;
         }
 
@@ -56,6 +78,28 @@ namespace chess
             {
                 board.setPiece(capturedPiece, destination);
                 capturedPieces.Remove(capturedPiece);
+            }
+
+            // #EspecialPlay - Castle Kingside
+            if (p is King && destination.column == origin.column + 2)
+            {
+                Position RookOrigin = new Position(origin.row, origin.column + 3);
+                Position RookDestination = new Position(origin.row, origin.column + 1);
+
+                Piece R = board.removePiece(RookDestination);
+                R.DecrementMoves();
+                board.setPiece(R, RookOrigin);
+            }          
+            
+            // #EspecialPlay - Castle Queenside
+            if (p is King && destination.column == origin.column - 2)
+            {
+                Position RookOrigin = new Position(origin.row, origin.column - 4);
+                Position RookDestination = new Position(origin.row, origin.column - 1);
+
+                Piece R = board.removePiece(RookDestination);
+                R.DecrementMoves();
+                board.setPiece(R, RookOrigin);
             }
 
             board.setPiece(p, origin);
@@ -244,8 +288,8 @@ namespace chess
             PlaceNewPiece('a', 1, new Rook(board, Color.White));
             PlaceNewPiece('b', 1, new Knight(board, Color.White));
             PlaceNewPiece('c', 1, new Bishop(board, Color.White));
-            PlaceNewPiece('d', 1, new King(board, Color.White));
-            PlaceNewPiece('e', 1, new Queen(board, Color.White));
+            PlaceNewPiece('d', 1, new Queen(board, Color.White));
+            PlaceNewPiece('e', 1, new King(board, Color.White, this));
             PlaceNewPiece('f', 1, new Bishop(board, Color.White));
             PlaceNewPiece('g', 1, new Knight(board, Color.White));
             PlaceNewPiece('h', 1, new Rook(board, Color.White));
@@ -257,8 +301,8 @@ namespace chess
             PlaceNewPiece('a', 8, new Rook(board, Color.Black));
             PlaceNewPiece('b', 8, new Knight(board, Color.Black));
             PlaceNewPiece('c', 8, new Bishop(board, Color.Black));
-            PlaceNewPiece('d', 8, new King(board, Color.Black));
-            PlaceNewPiece('e', 8, new Queen(board, Color.Black));
+            PlaceNewPiece('d', 8, new Queen(board, Color.Black));
+            PlaceNewPiece('e', 8, new King(board, Color.Black, this));
             PlaceNewPiece('f', 8, new Bishop(board, Color.Black));
             PlaceNewPiece('g', 8, new Knight(board, Color.Black));
             PlaceNewPiece('h', 8, new Rook(board, Color.Black));

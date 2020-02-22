@@ -36,7 +36,7 @@ namespace chess
 
             pos.SetValues(position.row - 1, position.column + 2);
             if(board.ValidPosition(pos) && CanMove(pos)){
-                mat[pos.row, position.column] = true;
+                mat[pos.row, pos.column] = true;
             }
 
             pos.SetValues(position.row + 1, position.column + 2);
