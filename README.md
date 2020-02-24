@@ -44,6 +44,6 @@ Essa seção ensina sobre interfaces
 
 Essa seção ensina sobre expressão Lambda, delegate e Linq
 
-## [Seção 17](https://github.com/ViniciusLSilveira/CSharp-Tutorial/tree/master/Scripts/Secao17/Secao17)
+### [Seção 17](https://github.com/ViniciusLSilveira/CSharp-Tutorial/tree/master/Scripts/Secao17/Secao17)
 
 Essa seção ensina ASP .NET(Core 2.1) MVC e Entity Framework
