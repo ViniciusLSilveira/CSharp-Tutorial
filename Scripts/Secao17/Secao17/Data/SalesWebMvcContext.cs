@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Secao17.Models;
 
-namespace Secao17.Data
+namespace Secao17.Models
 {
     public class SalesWebMvcContext : DbContext
     {

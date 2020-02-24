@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Secao17.Data;
+using Secao17.Models;
+using Secao17.Services;
 
 namespace Secao17
 {
@@ -41,6 +43,7 @@ namespace Secao17
                     builder.MigrationsAssembly("Secao17")));
 
             services.AddScoped<SeedingService>();
+            services.AddScoped<SellerService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
