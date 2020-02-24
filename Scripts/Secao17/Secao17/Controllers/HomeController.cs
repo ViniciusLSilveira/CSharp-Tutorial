@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Secao17.Models;
+using Secao17.Models.ViewModels;
 
 namespace Secao17.Controllers
 {

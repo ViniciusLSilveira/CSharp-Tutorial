@@ -1,6 +1,6 @@
 using System;
 
-namespace Secao17.Models
+namespace Secao17.Models.ViewModels
 {
     public class ErrorViewModel
     {
