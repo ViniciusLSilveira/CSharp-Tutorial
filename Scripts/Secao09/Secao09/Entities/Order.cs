@@ -2,9 +2,9 @@
 using System.Text;
 using System.Globalization;
 using System.Collections.Generic;
-using Secao9.Entities.Enums;
+using Secao09.Entities.Enums;
 
-namespace Secao9.Entities
+namespace Secao09.Entities
 {
     class Order
     {

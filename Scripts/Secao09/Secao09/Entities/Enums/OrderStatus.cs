@@ -1,4 +1,4 @@
-﻿namespace Secao9.Entities.Enums
+﻿namespace Secao09.Entities.Enums
 {
     enum OrderStatus : int
     {

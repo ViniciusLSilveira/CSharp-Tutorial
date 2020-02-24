@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Secao9.Entities
+namespace Secao09.Entities
 {
     class Client
     {

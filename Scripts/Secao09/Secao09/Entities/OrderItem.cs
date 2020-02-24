@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace Secao9.Entities
+namespace Secao09.Entities
 {
     class OrderItem
     {
@@ -9,7 +9,7 @@ namespace Secao9.Entities
         public Product Product { get; set; }
 
         public OrderItem()
-        { 
+        {
         }
 
         public OrderItem(int quantity, double price, Product product)

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Globalization;
-using Secao9.Entities;
-using Secao9.Entities.Enums;
+using Secao09.Entities;
+using Secao09.Entities.Enums;
 
-namespace Secao9
+namespace Secao09
 {
     class Program
     {
@@ -30,7 +30,7 @@ namespace Secao9
             Console.Write("How many items to this order: ");
             int n = int.Parse(Console.ReadLine());
 
-            for(int i = 1; i <= n; i++)
+            for (int i = 1; i <= n; i++)
             {
                 Console.WriteLine($"Enter #{i} item data:");
                 Console.Write("Product name: ");

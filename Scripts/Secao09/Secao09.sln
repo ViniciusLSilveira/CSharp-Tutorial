@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Secao9", "Course\Secao9.csproj", "{AB400E80-907B-4F91-881C-405D90FAF7BA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Secao09", "Secao09\Secao09.csproj", "{BECFEEB5-FDD5-481F-9FF5-7EA5099E297E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AB400E80-907B-4F91-881C-405D90FAF7BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB400E80-907B-4F91-881C-405D90FAF7BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AB400E80-907B-4F91-881C-405D90FAF7BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AB400E80-907B-4F91-881C-405D90FAF7BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BECFEEB5-FDD5-481F-9FF5-7EA5099E297E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BECFEEB5-FDD5-481F-9FF5-7EA5099E297E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BECFEEB5-FDD5-481F-9FF5-7EA5099E297E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BECFEEB5-FDD5-481F-9FF5-7EA5099E297E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {12F29C15-9A5B-4FA1-A21D-9BBF90D8F834}
+		SolutionGuid = {C910DF49-6EC1-4BB5-8D0A-DE1E1E5EDFE2}
 	EndGlobalSection
 EndGlobal

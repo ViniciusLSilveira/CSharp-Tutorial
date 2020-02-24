@@ -1,4 +1,4 @@
-﻿namespace Secao9.Entities
+﻿namespace Secao09.Entities
 {
     class Product
     {

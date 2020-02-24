@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AB400E80-907B-4F91-881C-405D90FAF7BA}</ProjectGuid>
+    <ProjectGuid>{BECFEEB5-FDD5-481F-9FF5-7EA5099E297E}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Course</RootNamespace>
-    <AssemblyName>Course</AssemblyName>
+    <RootNamespace>Secao09</RootNamespace>
+    <AssemblyName>Secao09</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
