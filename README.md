@@ -1,5 +1,5 @@
 # CSharp-Tutorial
-Acompanhando o [tutorial](https://www.udemy.com/course/programacao-orientada-a-objetos-csharp/) de C# criado pelo Dr. Nelio Alves, focado mais em resolver os exercicios de fixação
+Acompanhando o [tutorial](https://www.udemy.com/share/101WjkBUEccldTRHo=/) de C# criado pelo Dr. Nelio Alves, focado mais em resolver os exercicios de fixação
 
 ### [Seção 4](https://github.com/ViniciusLSilveira/CSharp-Tutorial/tree/master/Scripts/Secao04/Secao04)
 Essa seção ensina sobre classes, atributos e metodos estáticos (static keyword)
