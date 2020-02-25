@@ -108,8 +108,14 @@ namespace Secao17.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
-            await _sellerService.RemoveAsync(id);
-
+            try
+            {
+                await _sellerService.RemoveAsync(id);
+            }
+            catch (IntegrityException e)
+            {
+                return RedirectToAction(nameof(Error), new { e.Message });
+            }
             return RedirectToAction(nameof(Index));
         }
 
